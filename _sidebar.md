@@ -3,12 +3,11 @@
 * **项目文档**
   * **行情系统 (Market)**
     * [系统结构](project/market/01.%20系统结构.md)
-    * [Flink 任务](project/market/02.%20flink%20任务.md)
+    * [Flink 任务](project/market/02.%20Flink%20任务.md)
     * [推送技术选型](project/market/03.%20推送技术选型.md)
     * [价格偏差处理](project/market/04.%20价格偏差处理.md)
+    * [K 线补偿](project/market/05.%20K%20线补偿.md)
     * [MQTT 耗时分析](project/market/06.%20MQTT%20耗时分析.md)
-    * [K 线补偿](project/market/07.%20K%20线补偿.md)
-    * [难点与解决方案](project/market/08.%20难点与解决方案.md)
   * **OTC**
     * [订单状态](project/otc/01.%20订单状态.md)
     * [OTC 结算](project/otc/02.%20OTC%20结算.md)
@@ -54,6 +53,26 @@
     * [技术要点](english/market/04-technical-points.md)
     * [价格偏差控制](english/market/05-price-deviation-controls.md)
     * [延迟分析](english/market/06-latency-analysis.md)
+  * **技术词汇表**
+    * [基础计算机词汇](english/vocabulary/subject/01-basic-computer-vocabulary.md)
+    * [编程语言核心](english/vocabulary/subject/02-programming-language-core.md)
+    * [数据结构与算法](english/vocabulary/subject/03-data-structures-algorithms.md)
+    * [操作系统与网络](english/vocabulary/subject/04-operating-system-network.md)
+    * [数据库](english/vocabulary/subject/05-database.md)
+    * [分布式系统](english/vocabulary/subject/06-distributed-systems.md)
+    * [微服务](english/vocabulary/subject/07-microservices.md)
+    * [消息队列](english/vocabulary/subject/08-message-queue.md)
+    * [缓存](english/vocabulary/subject/09-caching.md)
+    * [并发与多线程](english/vocabulary/subject/10-concurrency-multithreading.md)
+    * [Java 生态](english/vocabulary/subject/11-java-ecosystem.md)
+    * [Spring 框架](english/vocabulary/subject/12-spring-framework.md)
+    * [系统设计](english/vocabulary/subject/13-system-design.md)
+    * [性能优化](english/vocabulary/subject/14-performance-optimization.md)
+    * [DevOps](english/vocabulary/subject/15-devops-deployment.md)
+    * [软件工程](english/vocabulary/subject/16-software-engineering-practices.md)
+    * [测试](english/vocabulary/subject/17-testing.md)
+    * [安全](english/vocabulary/subject/18-security.md)
+    * [面试表达](english/vocabulary/subject/19-interview-expressions.md)
 
 * **简历**
   * [Markdown 简历](resume/markdown-resume.md)
