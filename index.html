@@ -15,15 +15,55 @@
             name: 'Novena',
             repo: 'https://github.com/kyleexu/novena',
             loadSidebar: true,
-            subMaxLevel: 0,
-            autoHeader: false,
+            subMaxLevel: 3,
+            maxLevel: 4,
             search: {
                 placeholder: '搜索',
                 noData: '没有结果',
                 paths: 'auto'
             },
             auto2top: true,
-            coverpage: false
+            coverpage: false,
+            executeScript: true,
+            plugins: [
+                function (hook, vm) {
+                    hook.beforeEach(function (html, next) {
+                        // 如果不是首页，在内容顶部添加返回首页链接
+                        if (vm.route.path !== '/') {
+                            html = '<div class="custom-nav"><a href="#/" class="back-home">🏠 返回首页</a></div>\n\n' + html;
+                        }
+                        next(html);
+                    });
+
+                    hook.doneEach(function () {
+                        // 添加自定义样式
+                        if (!document.querySelector('#custom-nav-style')) {
+                            const style = document.createElement('style');
+                            style.id = 'custom-nav-style';
+                            style.textContent = `
+                                .custom-nav {
+                                    background: #f8f9fa;
+                                    padding: 10px 15px;
+                                    border-radius: 4px;
+                                    border-left: 4px solid #42b983;
+                                    margin-bottom: 20px;
+                                }
+                                .back-home {
+                                    color: #42b983;
+                                    text-decoration: none;
+                                    font-weight: 500;
+                                    font-size: 14px;
+                                }
+                                .back-home:hover {
+                                    color: #369870;
+                                    text-decoration: underline;
+                                }
+                            `;
+                            document.head.appendChild(style);
+                        }
+                    });
+                }
+            ]
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
