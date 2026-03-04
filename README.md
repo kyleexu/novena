@@ -37,13 +37,6 @@
 ### flink
 - [01. flink-architecture](repository/flink/01.%20flink-architecture.md)
 
-### java
-- [01. concurrent mark sweep](repository/java/01.%20concurrent%20mark%20sweep.md)
-- [02. G1](repository/java/02.%20G1.md)
-- [03. hashmap](repository/java/03.%20hashmap.md)
-- [04. concurrenthashmap](repository/java/04.%20concurrenthashmap.md)
-- [05. lock & synchornized](repository/java/05.%20lock%20%26%20synchornized.md)
-
 ### kafka
 - [01. 结构](repository/kafka/01.%20%E7%BB%93%E6%9E%84.md)
 - [02. 丢失、重复与有序](repository/kafka/02.%20%E4%B8%A2%E5%A4%B1%E3%80%81%E9%87%8D%E5%A4%8D%E4%B8%8E%E6%9C%89%E5%BA%8F.md)
@@ -69,6 +62,13 @@
 ## 🌍 英文面试准备
 
 - [README](english/README.md)
+
+### java
+- [01. concurrent mark sweep](english/java/01.%20concurrent%20mark%20sweep.md)
+- [02. G1](english/java/02.%20G1.md)
+- [03. hashmap](english/java/03.%20hashmap.md)
+- [04. concurrenthashmap](english/java/04.%20concurrenthashmap.md)
+- [05. lock & synchornized](english/java/05.%20lock%20%26%20synchornized.md)
 
 ### market
 - [01-system-architecture](english/market/01-system-architecture.md)
