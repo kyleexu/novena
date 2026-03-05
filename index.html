@@ -79,6 +79,56 @@
                                     color: #369870;
                                     text-decoration: underline;
                                 }
+                                /* 增大字体大小 */
+                                .markdown-section {
+                                    font-size: 18px;
+                                }
+                                .markdown-section h1 {
+                                    font-size: 2.5rem;
+                                }
+                                .markdown-section h2 {
+                                    font-size: 2rem;
+                                }
+                                .markdown-section h3 {
+                                    font-size: 1.75rem;
+                                }
+                                .markdown-section h4 {
+                                    font-size: 1.5rem;
+                                }
+                                .markdown-section h5 {
+                                    font-size: 1.25rem;
+                                }
+                                .markdown-section p, .markdown-section li, .markdown-section td {
+                                    font-size: 18px;
+                                    line-height: 1.8;
+                                }
+                                .markdown-section code {
+                                    font-size: 16px;
+                                }
+                                .markdown-section pre code {
+                                    font-size: 16px;
+                                }
+                                /* 居中对齐 */
+                                .markdown-section {
+                                    max-width: 1000px;
+                                    margin: 0 auto;
+                                    text-align: justify;
+                                }
+                                .markdown-section h1, .markdown-section h2, .markdown-section h3, 
+                                .markdown-section h4, .markdown-section h5, .markdown-section h6 {
+                                    text-align: center;
+                                }
+                                .markdown-section table {
+                                    margin: 0 auto;
+                                }
+                                .markdown-section blockquote {
+                                    text-align: center;
+                                    margin: 2em auto;
+                                }
+                                .markdown-section pre {
+                                    margin: 1em auto;
+                                    max-width: 90%;
+                                }
                             `;
                             document.head.appendChild(style);
                         }
