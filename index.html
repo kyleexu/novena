@@ -108,6 +108,14 @@
                                 .markdown-section pre code {
                                     font-size: 20px;
                                 }
+                                .markdown-section pre,
+                                .markdown-section pre > code,
+                                .markdown-section pre[data-lang] > code,
+                                .markdown-section pre[class*="language-"] > code,
+                                .markdown-section code[class*="language-"] {
+                                    font-size: 20px !important;
+                                    line-height: 1.8 !important;
+                                }
                                 /* 居中对齐 */
                                 .markdown-section {
                                     max-width: 1000px;
