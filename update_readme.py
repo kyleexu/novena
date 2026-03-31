@@ -123,32 +123,6 @@ def generate_readme():
         content.append("---")
         content.append("")
 
-    content.extend(
-        [
-            "## 🔧 本地预览",
-            "",
-            "```bash",
-            "# 安装 docsify-cli",
-            "npm i docsify-cli -g",
-            "",
-            "# 启动本地服务",
-            "docsify serve .",
-            "",
-            "# 访问 http://localhost:3000",
-            "```",
-            "",
-            "---",
-            "",
-            "## 📜 License",
-            "",
-            "本项目仅用于个人学习和技术分享。",
-            "",
-            "---",
-            "",
-            "**Last Updated:** March 2026",
-        ]
-    )
-
     readme_path = os.path.join(base_path, "README.md")
     with open(readme_path, "w", encoding="utf-8") as file:
         file.write("\n".join(content))

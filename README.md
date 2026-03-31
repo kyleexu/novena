@@ -92,20 +92,6 @@
 
 ---
 
-## 🔧 本地预览
-
-```bash
-# 安装 docsify-cli
-npm i docsify-cli -g
-
-# 启动本地服务
-docsify serve .
-
-# 访问 http://localhost:3000
-```
-
----
-
 ## 📜 License
 
 本项目仅用于个人学习和技术分享。
