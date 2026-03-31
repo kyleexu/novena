@@ -43,7 +43,7 @@ def get_default_emoji(dir_name):
         "jobs": "🎯",
         "interview": "📄",
         "resume": "📝",
-        "hongkong": "🏛️",
+        "hongkong": "🇭🇰",
     }
     return emoji_map.get(dir_name, "📁")
 
@@ -56,7 +56,7 @@ def get_default_title(dir_name):
         "jobs": "岗位描述",
         "interview": "面试总结",
         "resume": "个人简历",
-        "hongkong": "香港税务",
+        "hongkong": "香港",
     }
     return title_map.get(dir_name, dir_name)
 
