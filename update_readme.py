@@ -3,147 +3,158 @@
 
 import os
 import urllib.parse
-from pathlib import Path
 
-def scan_directory(dir_path, base_path):
-    """扫描目录并生成文档链接"""
+
+EXCLUDE_DIRS = {
+    ".git",
+    ".github",
+    ".idea",
+    ".vscode",
+    "__pycache__",
+    "build",
+    "dist",
+    "node_modules",
+}
+
+SECTION_TITLES = {
+    "zh": "## 中文内容",
+    "en": "## English Content",
+}
+
+LANGUAGE_ORDER = ["zh", "en"]
+
+DIRECTORY_TITLES = {
+    "project": "项目经验",
+    "repository": "技术知识库",
+    "hongkong": "香港",
+    "tax": "税务",
+}
+
+
+def get_display_name(name):
+    """将目录名映射为更适合 README 展示的标题。"""
+    return DIRECTORY_TITLES.get(name, name)
+
+
+def encode_link(path):
+    """对文档路径进行 URL 编码。"""
+    return urllib.parse.quote(path, safe="/")
+
+
+def scan_directory(dir_path, base_path, heading_level=3):
+    """递归扫描目录，生成分层 Markdown。"""
     items = []
-    if not os.path.exists(dir_path):
+    if not os.path.isdir(dir_path):
         return items
-    
-    for item in sorted(os.listdir(dir_path)):
-        if item.startswith('.'):
+
+    entries = sorted(os.listdir(dir_path))
+    files = []
+    directories = []
+
+    for entry in entries:
+        if entry.startswith(".") or entry in EXCLUDE_DIRS:
             continue
-            
-        item_path = os.path.join(dir_path, item)
-        relative_path = os.path.relpath(item_path, base_path)
-        
-        if os.path.isfile(item_path) and item.endswith('.md'):
-            # 文件名去掉 .md 后缀作为显示名
-            display_name = os.path.splitext(item)[0]
-            # URL 编码文件名
-            encoded_path = urllib.parse.quote(relative_path, safe='/')
-            items.append(f"- [{display_name}]({encoded_path})")
-            
-        elif os.path.isdir(item_path):
-            # 子目录
-            sub_items = scan_directory(item_path, base_path)
-            if sub_items:
-                items.append(f"\n### {item}")
-                items.extend(sub_items)
-    
+
+        entry_path = os.path.join(dir_path, entry)
+        if os.path.isfile(entry_path) and entry.endswith(".md"):
+            files.append(entry)
+        elif os.path.isdir(entry_path):
+            directories.append(entry)
+
+    for file_name in files:
+        file_path = os.path.join(dir_path, file_name)
+        relative_path = os.path.relpath(file_path, base_path)
+        display_name = os.path.splitext(file_name)[0]
+        items.append(f"- [{display_name}]({encode_link(relative_path)})")
+
+    for directory in directories:
+        sub_dir_path = os.path.join(dir_path, directory)
+        sub_items = scan_directory(sub_dir_path, base_path, heading_level + 1)
+        if not sub_items:
+            continue
+
+        if items:
+            items.append("")
+        items.append(f"{'#' * heading_level} {get_display_name(directory)}")
+        items.extend(sub_items)
+
     return items
 
-def get_default_emoji(dir_name):
-    """根据目录名获取默认 emoji"""
-    emoji_map = {
-        "project": "🚀",
-        "repository": "📚",
-        "english": "🌍",
-        "jobs": "🎯",
-        "interview": "📄",
-        "resume": "📝",
-        "hongkong": "🇭🇰",
-    }
-    return emoji_map.get(dir_name, "📁")
 
-def get_default_title(dir_name):
-    """根据目录名获取默认标题"""
-    title_map = {
-        "project": "项目经验",
-        "repository": "技术知识库",
-        "english": "英文面试准备",
-        "jobs": "岗位描述",
-        "interview": "面试总结",
-        "resume": "个人简历",
-        "hongkong": "香港",
-    }
-    return title_map.get(dir_name, dir_name)
-
-def get_directories(base_path):
-    """自动扫描根目录下的所有目录"""
-    exclude_dirs = {'.git', '.github', 'node_modules', '.vscode', '.idea', '__pycache__', '.DS_Store', 'dist', 'build'}
-    
+def get_language_directories(base_path):
+    """获取当前仓库中的语言目录。"""
     directories = []
-    try:
-        for item in sorted(os.listdir(base_path)):
-            if item.startswith('.') or item in exclude_dirs:
-                continue
-            
-            item_path = os.path.join(base_path, item)
-            if os.path.isdir(item_path):
-                emoji = get_default_emoji(item)
-                title = get_default_title(item)
-                directories.append((item, f"{emoji} {title}"))
-    except Exception as e:
-        print(f"⚠️  扫描目录出错: {e}")
-    
+    for language in LANGUAGE_ORDER:
+        language_path = os.path.join(base_path, language)
+        if os.path.isdir(language_path):
+            directories.append(language)
+
     return directories
 
+
 def generate_readme():
-    """生成 README 文档"""
+    """根据当前目录结构生成 README。"""
     base_path = os.path.dirname(os.path.abspath(__file__))
-    
+
     content = [
         "# Novena - 个人技术知识库",
         "",
-        "系统化整理的技术知识库，涵盖项目经验总结、核心技术栈深度分析以及英文面试准备资料。",
+        "系统化整理的技术知识库，涵盖中文项目复盘、技术专题沉淀以及英文材料整理。",
         "",
         "> 📖 **在线阅读**：[https://kyleexu.github.io/novena](https://kyleexu.github.io/novena)",
         "",
         "---",
-        ""
+        "",
     ]
-    
-    # 自动扫描目录
-    directories = get_directories(base_path)
-    
-    for dir_name, title in directories:
-        dir_path = os.path.join(base_path, dir_name)
-        content.append(f"## {title}")
+
+    total_docs = 0
+    for language_dir in get_language_directories(base_path):
+        content.append(SECTION_TITLES[language_dir])
         content.append("")
-        
-        items = scan_directory(dir_path, base_path)
+
+        items = scan_directory(os.path.join(base_path, language_dir), base_path)
         if items:
+            total_docs += sum(1 for item in items if item.startswith("- ["))
             content.extend(items)
         else:
             content.append("暂无文档")
-        
+
         content.append("")
         content.append("---")
         content.append("")
-    
-    # 添加尾部
-    content.extend([
-        "## 🔧 本地预览",
-        "",
-        "```bash",
-        "# 安装 docsify-cli",
-        "npm i docsify-cli -g",
-        "",
-        "# 启动本地服务", 
-        "docsify serve .",
-        "",
-        "# 访问 http://localhost:3000",
-        "```",
-        "",
-        "---",
-        "",
-        "## 📜 License",
-        "",
-        "本项目仅用于个人学习和技术分享。",
-        "",
-        "---",
-        "",
-        "**Last Updated:** March 2026"
-    ])
-    
-    # 写入 README.md
+
+    content.extend(
+        [
+            "## 🔧 本地预览",
+            "",
+            "```bash",
+            "# 安装 docsify-cli",
+            "npm i docsify-cli -g",
+            "",
+            "# 启动本地服务",
+            "docsify serve .",
+            "",
+            "# 访问 http://localhost:3000",
+            "```",
+            "",
+            "---",
+            "",
+            "## 📜 License",
+            "",
+            "本项目仅用于个人学习和技术分享。",
+            "",
+            "---",
+            "",
+            "**Last Updated:** March 2026",
+        ]
+    )
+
     readme_path = os.path.join(base_path, "README.md")
-    with open(readme_path, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(content))
-    
-    print(f"✅ README.md 已更新 ({len([x for x in content if x.startswith('- [')])} 个文档)")
+    with open(readme_path, "w", encoding="utf-8") as file:
+        file.write("\n".join(content))
+
+    print(f"✅ README.md 已更新 ({total_docs} 个文档)")
+
 
 if __name__ == "__main__":
     generate_readme()

@@ -1,155 +1,94 @@
 # Novena - 个人技术知识库
 
-系统化整理的技术知识库，涵盖项目经验总结、核心技术栈深度分析以及英文面试准备资料。
+系统化整理的技术知识库，涵盖中文项目复盘、技术专题沉淀以及英文材料整理。
 
 > 📖 **在线阅读**：[https://kyleexu.github.io/novena](https://kyleexu.github.io/novena)
 
 ---
 
-## 🌍 英文面试准备
+## 中文内容
 
-- [README](english/README.md)
+### 香港
+#### 税务
+- [01. 香港薪俸税指引](zh/hongkong/tax/01.%20%E9%A6%99%E6%B8%AF%E8%96%AA%E4%BF%B8%E7%A8%8E%E6%8C%87%E5%BC%95.md)
+
+### 项目经验
+#### market
+- [01. 系统结构](zh/project/market/01.%20%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84.md)
+- [02. Flink 任务](zh/project/market/02.%20Flink%20%E4%BB%BB%E5%8A%A1.md)
+- [03. 推送技术选型](zh/project/market/03.%20%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B.md)
+- [04. 价格偏差处理](zh/project/market/04.%20%E4%BB%B7%E6%A0%BC%E5%81%8F%E5%B7%AE%E5%A4%84%E7%90%86.md)
+- [05. K 线补偿](zh/project/market/05.%20K%20%E7%BA%BF%E8%A1%A5%E5%81%BF.md)
+- [06. MQTT 耗时分析](zh/project/market/06.%20MQTT%20%E8%80%97%E6%97%B6%E5%88%86%E6%9E%90.md)
+- [07. MQTT 推送结构优化](zh/project/market/07.%20MQTT%20%E6%8E%A8%E9%80%81%E7%BB%93%E6%9E%84%E4%BC%98%E5%8C%96.md)
+
+#### otc
+- [01. 订单状态](zh/project/otc/01.%20%E8%AE%A2%E5%8D%95%E7%8A%B6%E6%80%81.md)
+
+#### rate-limit
+- [01. 概况](zh/project/rate-limit/01.%20%E6%A6%82%E5%86%B5.md)
+- [02. 同一毫秒多次请求](zh/project/rate-limit/02.%20%E5%90%8C%E4%B8%80%E6%AF%AB%E7%A7%92%E5%A4%9A%E6%AC%A1%E8%AF%B7%E6%B1%82.md)
+- [03. 与单机限流比](zh/project/rate-limit/03.%20%E4%B8%8E%E5%8D%95%E6%9C%BA%E9%99%90%E6%B5%81%E6%AF%94.md)
+
+#### rule-engine
+- [01. 概述](zh/project/rule-engine/01.%20%E6%A6%82%E8%BF%B0.md)
+
+### 技术知识库
+#### flink
+- [01. flink-architecture](zh/repository/flink/01.%20flink-architecture.md)
+
+#### java
+- [01. 垃圾回收器](zh/repository/java/01.%20%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8.md)
+
+#### kafka
+- [01. 结构](zh/repository/kafka/01.%20%E7%BB%93%E6%9E%84.md)
+- [02. 丢失、重复与有序](zh/repository/kafka/02.%20%E4%B8%A2%E5%A4%B1%E3%80%81%E9%87%8D%E5%A4%8D%E4%B8%8E%E6%9C%89%E5%BA%8F.md)
+
+#### mqtt
+- [简介](zh/repository/mqtt/%E7%AE%80%E4%BB%8B.md)
+
+#### mysql
+- [01. 并发修改](zh/repository/mysql/01.%20%E5%B9%B6%E5%8F%91%E4%BF%AE%E6%94%B9.md)
+- [02. 死锁](zh/repository/mysql/02.%20%E6%AD%BB%E9%94%81.md)
+- [03. mvcc](zh/repository/mysql/03.%20mvcc.md)
+- [04. for update](zh/repository/mysql/04.%20for%20update.md)
+
+#### others
+- [01. nonce 与时间戳](zh/repository/others/01.%20nonce%20%E4%B8%8E%E6%97%B6%E9%97%B4%E6%88%B3.md)
+- [02. 状态机](zh/repository/others/02.%20%E7%8A%B6%E6%80%81%E6%9C%BA.md)
+- [03. 事件驱动](zh/repository/others/03.%20%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8.md)
+- [04. 高性能的架构](zh/repository/others/04.%20%E9%AB%98%E6%80%A7%E8%83%BD%E7%9A%84%E6%9E%B6%E6%9E%84.md)
+- [05. 零拷贝](zh/repository/others/05.%20%E9%9B%B6%E6%8B%B7%E8%B4%9D.md)
+- [06. questions](zh/repository/others/06.%20questions.md)
+- [07. 超卖](zh/repository/others/07.%20%E8%B6%85%E5%8D%96.md)
+
+#### redis
+- [01. 数据结构](zh/repository/redis/01.%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
+- [02. 分布式锁](zh/repository/redis/02.%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81.md)
+- [03. Zset 底层结构](zh/repository/redis/03.%20Zset%20%E5%BA%95%E5%B1%82%E7%BB%93%E6%9E%84.md)
+
+---
+
+## English Content
 
 ### java
-- [01. concurrent mark sweep](english/java/01.%20concurrent%20mark%20sweep.md)
-- [02. G1](english/java/02.%20G1.md)
-- [03. hashmap](english/java/03.%20hashmap.md)
-- [04. concurrenthashmap](english/java/04.%20concurrenthashmap.md)
-- [05. lock & synchornized](english/java/05.%20lock%20%26%20synchornized.md)
+- [01. concurrent mark sweep](en/java/01.%20concurrent%20mark%20sweep.md)
+- [02. G1](en/java/02.%20G1.md)
+- [03. hashmap](en/java/03.%20hashmap.md)
+- [04. concurrenthashmap](en/java/04.%20concurrenthashmap.md)
+- [05. lock & synchornized](en/java/05.%20lock%20%26%20synchornized.md)
 
 ### market
-- [01-system-architecture](english/market/01-system-architecture.md)
-- [02-mqtt-vs-websocket](english/market/02-mqtt-vs-websocket.md)
-- [03-parallel-vs-serial](english/market/03-parallel-vs-serial.md)
-- [04-technical-points](english/market/04-technical-points.md)
-- [05-price-deviation-controls](english/market/05-price-deviation-controls.md)
-- [05-price-deviation-handling](english/market/05-price-deviation-handling.md)
-- [06-latency-analysis](english/market/06-latency-analysis.md)
+- [01-system-architecture](en/market/01-system-architecture.md)
+- [02-mqtt-vs-websocket](en/market/02-mqtt-vs-websocket.md)
+- [03-parallel-vs-serial](en/market/03-parallel-vs-serial.md)
+- [04-technical-points](en/market/04-technical-points.md)
+- [05-price-deviation-controls](en/market/05-price-deviation-controls.md)
+- [05-price-deviation-handling](en/market/05-price-deviation-handling.md)
+- [06-latency-analysis](en/market/06-latency-analysis.md)
 
 ### rule-engine
-- [01. summary](english/rule-engine/01.%20summary.md)
-- [self-introduction](english/self-introduction.md)
-
-### vocabulary
-- [alpha](english/vocabulary/alpha.md)
-- [statement-template](english/vocabulary/statement-template.md)
-
-### subject
-- [01-basic-computer-vocabulary](english/vocabulary/subject/01-basic-computer-vocabulary.md)
-- [02-programming-language-core](english/vocabulary/subject/02-programming-language-core.md)
-- [03-data-structures-algorithms](english/vocabulary/subject/03-data-structures-algorithms.md)
-- [04-operating-system-network](english/vocabulary/subject/04-operating-system-network.md)
-- [05-database](english/vocabulary/subject/05-database.md)
-- [06-distributed-systems](english/vocabulary/subject/06-distributed-systems.md)
-- [07-microservices](english/vocabulary/subject/07-microservices.md)
-- [08-message-queue](english/vocabulary/subject/08-message-queue.md)
-- [09-caching](english/vocabulary/subject/09-caching.md)
-- [10-concurrency-multithreading](english/vocabulary/subject/10-concurrency-multithreading.md)
-- [11-java-ecosystem](english/vocabulary/subject/11-java-ecosystem.md)
-- [12-spring-framework](english/vocabulary/subject/12-spring-framework.md)
-- [13-system-design](english/vocabulary/subject/13-system-design.md)
-- [14-performance-optimization](english/vocabulary/subject/14-performance-optimization.md)
-- [15-devops-deployment](english/vocabulary/subject/15-devops-deployment.md)
-- [16-software-engineering-practices](english/vocabulary/subject/16-software-engineering-practices.md)
-- [17-testing](english/vocabulary/subject/17-testing.md)
-- [18-security](english/vocabulary/subject/18-security.md)
-- [19-interview-expressions](english/vocabulary/subject/19-interview-expressions.md)
-
----
-
-## 🏛️ 香港税务
-
-
-### tax
-- [香港薪俸税指引](hongkong/tax/%E9%A6%99%E6%B8%AF%E8%96%AA%E4%BF%B8%E7%A8%8E%E6%8C%87%E5%BC%95.md)
-
----
-
-## 📄 面试总结
-
-- [summary](interview/summary.md)
-
----
-
-## 🎯 岗位描述
-
-- [bybit](jobs/bybit.md)
-- [futu](jobs/futu.md)
-- [osl](jobs/osl.md)
-
----
-
-## 🚀 项目经验
-
-
-### market
-- [01. 系统结构](project/market/01.%20%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84.md)
-- [02. Flink 任务](project/market/02.%20Flink%20%E4%BB%BB%E5%8A%A1.md)
-- [03. 推送技术选型](project/market/03.%20%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B.md)
-- [04. 价格偏差处理](project/market/04.%20%E4%BB%B7%E6%A0%BC%E5%81%8F%E5%B7%AE%E5%A4%84%E7%90%86.md)
-- [05. K 线补偿](project/market/05.%20K%20%E7%BA%BF%E8%A1%A5%E5%81%BF.md)
-- [06. MQTT 耗时分析](project/market/06.%20MQTT%20%E8%80%97%E6%97%B6%E5%88%86%E6%9E%90.md)
-- [07. MQTT 推送结构优化](project/market/07.%20MQTT%20%E6%8E%A8%E9%80%81%E7%BB%93%E6%9E%84%E4%BC%98%E5%8C%96.md)
-
-### otc
-- [01. 订单状态](project/otc/01.%20%E8%AE%A2%E5%8D%95%E7%8A%B6%E6%80%81.md)
-
-### rate-limit
-- [01. 概况](project/rate-limit/01.%20%E6%A6%82%E5%86%B5.md)
-- [02. 同一毫秒多次请求](project/rate-limit/02.%20%E5%90%8C%E4%B8%80%E6%AF%AB%E7%A7%92%E5%A4%9A%E6%AC%A1%E8%AF%B7%E6%B1%82.md)
-- [03. 与单机限流比](project/rate-limit/03.%20%E4%B8%8E%E5%8D%95%E6%9C%BA%E9%99%90%E6%B5%81%E6%AF%94.md)
-
-### rule-engine
-- [01. 概述](project/rule-engine/01.%20%E6%A6%82%E8%BF%B0.md)
-
----
-
-## 📚 技术知识库
-
-
-### flink
-- [01. flink-architecture](repository/flink/01.%20flink-architecture.md)
-
-### java
-- [01. 垃圾回收器](repository/java/01.%20%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8.md)
-
-### kafka
-- [01. 结构](repository/kafka/01.%20%E7%BB%93%E6%9E%84.md)
-- [02. 丢失、重复与有序](repository/kafka/02.%20%E4%B8%A2%E5%A4%B1%E3%80%81%E9%87%8D%E5%A4%8D%E4%B8%8E%E6%9C%89%E5%BA%8F.md)
-
-### mqtt
-- [简介](repository/mqtt/%E7%AE%80%E4%BB%8B.md)
-
-### mysql
-- [01. 并发修改](repository/mysql/01.%20%E5%B9%B6%E5%8F%91%E4%BF%AE%E6%94%B9.md)
-- [02. 死锁](repository/mysql/02.%20%E6%AD%BB%E9%94%81.md)
-- [03. mvcc](repository/mysql/03.%20mvcc.md)
-- [04. for update](repository/mysql/04.%20for%20update.md)
-
-### others
-- [01. nonce 与时间戳](repository/others/01.%20nonce%20%E4%B8%8E%E6%97%B6%E9%97%B4%E6%88%B3.md)
-- [02. 状态机](repository/others/02.%20%E7%8A%B6%E6%80%81%E6%9C%BA.md)
-- [03. 事件驱动](repository/others/03.%20%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8.md)
-- [04. 高性能的架构](repository/others/04.%20%E9%AB%98%E6%80%A7%E8%83%BD%E7%9A%84%E6%9E%B6%E6%9E%84.md)
-- [05. 零拷贝](repository/others/05.%20%E9%9B%B6%E6%8B%B7%E8%B4%9D.md)
-- [06. questions](repository/others/06.%20questions.md)
-- [07. 超卖](repository/others/07.%20%E8%B6%85%E5%8D%96.md)
-
-### redis
-- [01. 数据结构](repository/redis/01.%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
-- [02. 分布式锁](repository/redis/02.%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81.md)
-- [03. Zset 底层结构](repository/redis/03.%20Zset%20%E5%BA%95%E5%B1%82%E7%BB%93%E6%9E%84.md)
-
----
-
-## 📝 个人简历
-
-
-### en
-- [resume](resume/en/resume.md)
-
-### zh
-- [resume](resume/zh/resume.md)
+- [01. summary](en/rule-engine/01.%20summary.md)
 
 ---
 
