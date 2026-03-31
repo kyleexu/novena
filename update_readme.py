@@ -28,6 +28,17 @@ DIRECTORY_TITLES = {
     "repository": "技术知识库",
     "hongkong": "香港",
     "tax": "税务",
+    "market": "行情服务",
+    "otc": "OTC",
+    "rate-limit": "限流服务",
+    "rule-engine": "规则引擎",
+    "flink": "Flink",
+    "java": "Java",
+    "kafka": "Kafka",
+    "mqtt": "MQTT",
+    "mysql": "MySQL",
+    "others": "其他",
+    "redis": "Redis",
 }
 
 DIRECTORY_ORDER = {
