@@ -2,15 +2,11 @@
 
 系统化整理的技术知识库，涵盖中文项目复盘、技术专题沉淀以及英文材料整理。
 
-> 📖 **在线阅读**：[https://kyleexu.github.io/novena](https://kyleexu.github.io/novena)
+> 📖 **在线阅读**: [https://kyleexu.github.io/novena](https://kyleexu.github.io/novena)
 
 ---
 
 ## 中文内容
-
-### 香港
-#### 税务
-- [01. 香港薪俸税指引](zh/hongkong/tax/01.%20%E9%A6%99%E6%B8%AF%E8%96%AA%E4%BF%B8%E7%A8%8E%E6%8C%87%E5%BC%95.md)
 
 ### 项目经验
 #### market
@@ -32,6 +28,10 @@
 
 #### rule-engine
 - [01. 概述](zh/project/rule-engine/01.%20%E6%A6%82%E8%BF%B0.md)
+
+### 香港
+#### 税务
+- [01. 香港薪俸税指引](zh/hongkong/tax/01.%20%E9%A6%99%E6%B8%AF%E8%96%AA%E4%BF%B8%E7%A8%8E%E6%8C%87%E5%BC%95.md)
 
 ### 技术知识库
 #### flink
@@ -91,11 +91,3 @@
 - [01. summary](en/rule-engine/01.%20summary.md)
 
 ---
-
-## 📜 License
-
-本项目仅用于个人学习和技术分享。
-
----
-
-**Last Updated:** March 2026

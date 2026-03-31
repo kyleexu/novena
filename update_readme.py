@@ -30,6 +30,14 @@ DIRECTORY_TITLES = {
     "tax": "税务",
 }
 
+DIRECTORY_ORDER = {
+    "zh": ["project","hongkong","repository"],
+    "zh/project": ["market", "otc", "rate-limit", "rule-engine"],
+    "zh/repository": ["flink", "java", "kafka", "mqtt", "mysql", "others", "redis"],
+    "zh/hongkong": ["tax"],
+    "en": ["java", "market", "rule-engine"],
+}
+
 
 def get_display_name(name):
     """将目录名映射为更适合 README 展示的标题。"""
@@ -41,7 +49,13 @@ def encode_link(path):
     return urllib.parse.quote(path, safe="/")
 
 
-def scan_directory(dir_path, base_path, heading_level=3):
+def sort_entries(entries, order):
+    """按配置顺序排序，未配置项按名称补在后面。"""
+    order_index = {name: index for index, name in enumerate(order)}
+    return sorted(entries, key=lambda entry: (order_index.get(entry, len(order)), entry))
+
+
+def scan_directory(dir_path, base_path, relative_dir="", heading_level=3):
     """递归扫描目录，生成分层 Markdown。"""
     items = []
     if not os.path.isdir(dir_path):
@@ -61,6 +75,8 @@ def scan_directory(dir_path, base_path, heading_level=3):
         elif os.path.isdir(entry_path):
             directories.append(entry)
 
+    directories = sort_entries(directories, DIRECTORY_ORDER.get(relative_dir, []))
+
     for file_name in files:
         file_path = os.path.join(dir_path, file_name)
         relative_path = os.path.relpath(file_path, base_path)
@@ -69,7 +85,13 @@ def scan_directory(dir_path, base_path, heading_level=3):
 
     for directory in directories:
         sub_dir_path = os.path.join(dir_path, directory)
-        sub_items = scan_directory(sub_dir_path, base_path, heading_level + 1)
+        sub_relative_dir = f"{relative_dir}/{directory}" if relative_dir else directory
+        sub_items = scan_directory(
+            sub_dir_path,
+            base_path,
+            relative_dir=sub_relative_dir,
+            heading_level=heading_level + 1,
+        )
         if not sub_items:
             continue
 
@@ -101,7 +123,7 @@ def generate_readme():
         "",
         "系统化整理的技术知识库，涵盖中文项目复盘、技术专题沉淀以及英文材料整理。",
         "",
-        "> 📖 **在线阅读**：[https://kyleexu.github.io/novena](https://kyleexu.github.io/novena)",
+        "> 📖 **在线阅读**: [https://kyleexu.github.io/novena](https://kyleexu.github.io/novena)",
         "",
         "---",
         "",
@@ -112,7 +134,11 @@ def generate_readme():
         content.append(SECTION_TITLES[language_dir])
         content.append("")
 
-        items = scan_directory(os.path.join(base_path, language_dir), base_path)
+        items = scan_directory(
+            os.path.join(base_path, language_dir),
+            base_path,
+            relative_dir=language_dir,
+        )
         if items:
             total_docs += sum(1 for item in items if item.startswith("- ["))
             content.extend(items)
