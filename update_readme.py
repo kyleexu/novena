@@ -34,6 +34,52 @@ def scan_directory(dir_path, base_path):
     
     return items
 
+def get_default_emoji(dir_name):
+    """根据目录名获取默认 emoji"""
+    emoji_map = {
+        "project": "🚀",
+        "repository": "📚",
+        "english": "🌍",
+        "jobs": "🎯",
+        "interview": "📄",
+        "resume": "📝",
+        "hongkong": "🏛️",
+    }
+    return emoji_map.get(dir_name, "📁")
+
+def get_default_title(dir_name):
+    """根据目录名获取默认标题"""
+    title_map = {
+        "project": "项目经验",
+        "repository": "技术知识库",
+        "english": "英文面试准备",
+        "jobs": "岗位描述",
+        "interview": "面试总结",
+        "resume": "个人简历",
+        "hongkong": "香港税务",
+    }
+    return title_map.get(dir_name, dir_name)
+
+def get_directories(base_path):
+    """自动扫描根目录下的所有目录"""
+    exclude_dirs = {'.git', '.github', 'node_modules', '.vscode', '.idea', '__pycache__', '.DS_Store', 'dist', 'build'}
+    
+    directories = []
+    try:
+        for item in sorted(os.listdir(base_path)):
+            if item.startswith('.') or item in exclude_dirs:
+                continue
+            
+            item_path = os.path.join(base_path, item)
+            if os.path.isdir(item_path):
+                emoji = get_default_emoji(item)
+                title = get_default_title(item)
+                directories.append((item, f"{emoji} {title}"))
+    except Exception as e:
+        print(f"⚠️  扫描目录出错: {e}")
+    
+    return directories
+
 def generate_readme():
     """生成 README 文档"""
     base_path = os.path.dirname(os.path.abspath(__file__))
@@ -49,31 +95,23 @@ def generate_readme():
         ""
     ]
     
-    # 扫描各个目录
-    directories = [
-        ("project", "🚀 项目经验"),
-        ("repository", "📚 技术知识库"), 
-        # ("english", "🌍 英文面试准备"),
-        ("jobs", "🎯 岗位描述"),
-        ("interview", "📄 面试总结"),
-        ("resume", "📝 个人简历"),
-    ]
+    # 自动扫描目录
+    directories = get_directories(base_path)
     
     for dir_name, title in directories:
         dir_path = os.path.join(base_path, dir_name)
-        if os.path.exists(dir_path):
-            content.append(f"## {title}")
-            content.append("")
-            
-            items = scan_directory(dir_path, base_path)
-            if items:
-                content.extend(items)
-            else:
-                content.append("暂无文档")
-            
-            content.append("")
-            content.append("---")
-            content.append("")
+        content.append(f"## {title}")
+        content.append("")
+        
+        items = scan_directory(dir_path, base_path)
+        if items:
+            content.extend(items)
+        else:
+            content.append("暂无文档")
+        
+        content.append("")
+        content.append("---")
+        content.append("")
     
     # 添加尾部
     content.extend([
