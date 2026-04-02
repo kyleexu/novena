@@ -39,6 +39,7 @@ DIRECTORY_TITLES = {
     "mysql": "MySQL",
     "others": "其他",
     "redis": "Redis",
+    "peanuts":"Aeron 项目"
 }
 
 DIRECTORY_ORDER = {
