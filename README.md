@@ -18,16 +18,6 @@
 - [06. MQTT 耗时分析](zh/project/market/06.%20MQTT%20%E8%80%97%E6%97%B6%E5%88%86%E6%9E%90.md)
 - [07. MQTT 推送结构优化](zh/project/market/07.%20MQTT%20%E6%8E%A8%E9%80%81%E7%BB%93%E6%9E%84%E4%BC%98%E5%8C%96.md)
 
-#### Peanuts 撮合交易系统
-- [01. 系统概述](zh/project/peanuts/01.%20%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0.md)
-- [02. 撮合引擎](zh/project/peanuts/02.%20%E6%92%AE%E5%90%88%E5%BC%95%E6%93%8E.md)
-- [03. 订单网关](zh/project/peanuts/03.%20%E8%AE%A2%E5%8D%95%E7%BD%91%E5%85%B3.md)
-- [04. 账户服务](zh/project/peanuts/04.%20%E8%B4%A6%E6%88%B7%E6%9C%8D%E5%8A%A1.md)
-- [05. 行情服务](zh/project/peanuts/05.%20%E8%A1%8C%E6%83%85%E6%9C%8D%E5%8A%A1.md)
-- [06. Aeron 通信层](zh/project/peanuts/06.%20Aeron%20%E9%80%9A%E4%BF%A1%E5%B1%82.md)
-- [07. 做市商模块](zh/project/peanuts/07.%20%E5%81%9A%E5%B8%82%E5%95%86%E6%A8%A1%E5%9D%97.md)
-- [08. 桥接服务与 Raft](zh/project/peanuts/08.%20%E6%A1%A5%E6%8E%A5%E6%9C%8D%E5%8A%A1%E4%B8%8E%20Raft.md)
-
 #### OTC
 - [01. 订单状态](zh/project/otc/01.%20%E8%AE%A2%E5%8D%95%E7%8A%B6%E6%80%81.md)
 
@@ -38,6 +28,16 @@
 
 #### 规则引擎
 - [01. 概述](zh/project/rule-engine/01.%20%E6%A6%82%E8%BF%B0.md)
+
+#### Aeron 项目
+- [01. 系统概述](zh/project/peanuts/01.%20%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0.md)
+- [02. 撮合引擎](zh/project/peanuts/02.%20%E6%92%AE%E5%90%88%E5%BC%95%E6%93%8E.md)
+- [03. 订单网关](zh/project/peanuts/03.%20%E8%AE%A2%E5%8D%95%E7%BD%91%E5%85%B3.md)
+- [04. 账户服务](zh/project/peanuts/04.%20%E8%B4%A6%E6%88%B7%E6%9C%8D%E5%8A%A1.md)
+- [05. 行情服务](zh/project/peanuts/05.%20%E8%A1%8C%E6%83%85%E6%9C%8D%E5%8A%A1.md)
+- [06. Aeron 通信层](zh/project/peanuts/06.%20Aeron%20%E9%80%9A%E4%BF%A1%E5%B1%82.md)
+- [07. 做市商模块](zh/project/peanuts/07.%20%E5%81%9A%E5%B8%82%E5%95%86%E6%A8%A1%E5%9D%97.md)
+- [08. 桥接服务与 Raft](zh/project/peanuts/08.%20%E6%A1%A5%E6%8E%A5%E6%9C%8D%E5%8A%A1%E4%B8%8E%20Raft.md)
 
 ### 香港
 #### 税务
